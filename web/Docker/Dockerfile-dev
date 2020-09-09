@@ -1,0 +1,14 @@
+FROM continuumio/miniconda3:4.8.2-alpine
+
+ADD . /app
+WORKDIR /app
+
+USER root
+RUN apk add --no-cache build-base && \
+    apk add --no-cache mariadb-connector-c-dev && \
+    /opt/conda/bin/python -m pip install --no-cache-dir -r requirements.txt && \
+    apk del build-base
+
+EXPOSE 5000
+
+#CMD ["/opt/conda/bin/python", "app.py"]
