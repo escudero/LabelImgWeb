@@ -1,1 +1,6 @@
 db/data/
+web/images/
+__pycache__/
+.vscode/
+*.py[cod]
+start_container.bat
